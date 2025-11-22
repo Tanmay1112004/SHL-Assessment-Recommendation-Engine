@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - SHL Assessment Recommendation Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
+        .code-block { background: #1f2937; color: #f9fafb; }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">SHL</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">Assessment Engine</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-blue-600 transition-colors">About</a>
+                    <a href="documentation.html" class="text-blue-600 font-medium">API Docs</a>
+                    <a href="results.html" class="text-gray-600 hover:text-blue-600 transition-colors">Analytics</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl font-bold text-gray-900 mb-6">API Documentation</h1>
+            <p class="text-xl text-gray-600 mb-12">
+                Integrate intelligent assessment matching into your existing systems
+            </p>
+        </div>
+    </section>
+
+    <!-- API Overview -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">RESTful API Overview</h2>
+                    <p class="text-gray-600 mb-6">
+                        Our API provides seamless integration capabilities for intelligent assessment recommendation. 
+                        Built with modern REST principles, it offers fast, reliable access to our matching engine.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-gray-700">JSON-based request/response format</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-gray-700">HTTPS-only for security</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-gray-700">Rate limiting and authentication</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span class="text-gray-700">Comprehensive error handling</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 rounded-2xl p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Base URL</h3>
+                    <div class="code-block rounded-lg p-4 text-sm font-mono">
+                        https://api.shl-assessment.com/v1
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4 mt-6">Authentication</h3>
+                    <p class="text-gray-600 text-sm mb-3">Include your API key in the Authorization header:</p>
+                    <div class="code-block rounded-lg p-4 text-sm font-mono">
+                        Authorization: Bearer your-api-key
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Endpoints -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">API Endpoints</h2>
+            
+            <!-- POST /recommend -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900">Get Recommendations</h3>
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">POST</span>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Request</h4>
+                        <div class="code-block rounded-lg p-4 text-sm font-mono mb-4">
+POST /v1/recommend<br>
+Content-Type: application/json<br>
+Authorization: Bearer your-api-key<br><br>
+{<br>
+&nbsp;&nbsp;"job_description": "string",<br>
+&nbsp;&nbsp;"max_results": 10,<br>
+&nbsp;&nbsp;"min_confidence": 0.3<br>
+}
+                        </div>
+                        
+                        <h5 class="font-semibold text-gray-900 mb-2">Parameters</h5>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li><strong>job_description</strong> (required): Full job description text</li>
+                            <li><strong>max_results</strong> (optional): Maximum number of recommendations (5-10)</li>
+                            <li><strong>min_confidence</strong> (optional): Minimum confidence threshold (0.0-1.0)</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Response</h4>
+                        <div class="code-block rounded-lg p-4 text-sm font-mono">
+{<br>
+&nbsp;&nbsp;"success": true,<br>
+&nbsp;&nbsp;"recommendations": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "Java Programming Test",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "https://www.shl.com/...",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"confidence": 92.5,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "K",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration": "60 minutes",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"matched_skills": ["Java", "OOP"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"processing_time": 1.23<br>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GET /assessments -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900">List Assessments</h3>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">GET</span>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Request</h4>
+                        <div class="code-block rounded-lg p-4 text-sm font-mono mb-4">
+GET /v1/assessments<br>
+Authorization: Bearer your-api-key<br><br>
+?type=K&limit=50&offset=0
+                        </div>
+                        
+                        <h5 class="font-semibold text-gray-900 mb-2">Query Parameters</h5>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li><strong>type</strong> (optional): Filter by test type (K or P)</li>
+                            <li><strong>limit</strong> (optional): Number of results per page (1-100)</li>
+                            <li><strong>offset</strong> (optional): Pagination offset</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Response</h4>
+                        <div class="code-block rounded-lg p-4 text-sm font-mono">
+{<br>
+&nbsp;&nbsp;"success": true,<br>
+&nbsp;&nbsp;"assessments": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "string",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "string",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"test_type": "K|P",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"skill_keywords": ["string"],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"url": "string",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"duration": "string",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"difficulty": "string"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"total": 377,<br>
+&nbsp;&nbsp;"page": 1,<br>
+&nbsp;&nbsp;"per_page": 50<br>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POST /batch -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold text-gray-900">Batch Processing</h3>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">POST</span>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Request</h4>
+                        <div class="code-block rounded-lg p-4 text-sm font-mono mb-4">
+POST /v1/batch<br>
+Content-Type: application/json<br>
+Authorization: Bearer your-api-key<br><br>
+{<br>
+&nbsp;&nbsp;"job_descriptions": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"First job description...",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Second job description..."<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"max_results": 5<br>
+}
+                        </div>
+                        
+                        <p class="text-sm text-gray-600">Process multiple job descriptions in a single request. Perfect for bulk operations.</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Response</h4>
+                        <div class="code-block rounded-lg p-4 text-sm font-mono">
+{<br>
+&nbsp;&nbsp;"success": true,<br>
+&nbsp;&nbsp;"results": [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"job_description": "string",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"recommendations": [...]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;"total_processed": 2<br>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Error Handling -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Error Handling</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-red-50 rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold text-red-900 mb-4">Error Response Format</h3>
+                    <div class="code-block rounded-lg p-4 text-sm font-mono">
+{<br>
+&nbsp;&nbsp;"success": false,<br>
+&nbsp;&nbsp;"error": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"code": "INVALID_REQUEST",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"message": "Job description is required",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"details": {...}<br>
+&nbsp;&nbsp;}<br>
+}
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Common Error Codes</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="font-mono text-sm">400</span>
+                            <span class="text-sm text-gray-600">Invalid request parameters</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="font-mono text-sm">401</span>
+                            <span class="text-sm text-gray-600">Authentication required</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="font-mono text-sm">403</span>
+                            <span class="text-sm text-gray-600">Invalid API key</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="font-mono text-sm">429</span>
+                            <span class="text-sm text-gray-600">Rate limit exceeded</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="font-mono text-sm">500</span>
+                            <span class="text-sm text-gray-600">Internal server error</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Examples -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Integration Examples</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">JavaScript (Fetch)</h3>
+                    <div class="code-block rounded-lg p-4 text-sm font-mono">
+const apiKey = 'your-api-key';<br>
+const jobDescription = `Your job description here...`;<br><br>
+fetch('https://api.shl-assessment.com/v1/recommend', {<br>
+&nbsp;&nbsp;method: 'POST',<br>
+&nbsp;&nbsp;headers: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Content-Type': 'application/json',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Authorization': `Bearer ${apiKey}`<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;body: JSON.stringify({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;job_description: jobDescription,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;max_results: 10<br>
+&nbsp;&nbsp;})<br>
+})<br>
+.then(response => response.json())<br>
+.then(data => console.log(data));<br>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Python (Requests)</h3>
+                    <div class="code-block rounded-lg p-4 text-sm font-mono">
+import requests<br><br>
+api_key = 'your-api-key'<br>
+job_description = '''Your job description here...'''<br><br>
+response = requests.post(<br>
+&nbsp;&nbsp;'https://api.shl-assessment.com/v1/recommend',<br>
+&nbsp;&nbsp;headers={<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Content-Type': 'application/json',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Authorization': f'Bearer {api_key}'<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;json={<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'job_description': job_description,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'max_results': 10<br>
+&nbsp;&nbsp;}<br>
+)<br><br>
+results = response.json()<br>
+print(results)<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">SHL</span>
+                </div>
+                <span class="text-xl font-bold">Assessment Engine</span>
+            </div>
+            <p class="text-gray-400">© 2024 SHL Assessment Recommendation Engine. Intelligent talent assessment matching.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            anime({
+                targets: '.shadow-lg',
+                translateY: [30, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(150),
+                duration: 600,
+                easing: 'easeOutQuad'
+            });
+        });
+    </script>
+</body>
+</html>

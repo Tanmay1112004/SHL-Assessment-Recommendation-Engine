@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - SHL Assessment Recommendation Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">SHL</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">Assessment Engine</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-blue-600 transition-colors">About</a>
+                    <a href="documentation.html" class="text-gray-600 hover:text-blue-600 transition-colors">API Docs</a>
+                    <a href="results.html" class="text-blue-600 font-medium">Analytics</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl font-bold text-gray-900 mb-6">Analytics Dashboard</h1>
+            <p class="text-xl text-gray-600 mb-12">
+                Track performance metrics and usage patterns for data-driven insights
+            </p>
+        </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Key Performance Indicators</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">1,247</div>
+                    <div class="text-gray-600 mb-1">Total Queries</div>
+                    <div class="text-sm text-blue-600">+12% this month</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 text-center">
+                    <div class="text-4xl font-bold text-green-600 mb-2">94.2%</div>
+                    <div class="text-gray-600 mb-1">Average Confidence</div>
+                    <div class="text-sm text-green-600">+2.1% improvement</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">2.1s</div>
+                    <div class="text-gray-600 mb-1">Avg Response Time</div>
+                    <div class="text-sm text-purple-600">-0.3s faster</div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 text-center">
+                    <div class="text-4xl font-bold text-red-600 mb-2">99.8%</div>
+                    <div class="text-gray-600 mb-1">System Uptime</div>
+                    <div class="text-sm text-red-600">Excellent reliability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                <!-- Usage Trends -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Usage Trends</h3>
+                    <div id="usageChart" style="height: 300px;"></div>
+                </div>
+                
+                <!-- Assessment Types -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Assessment Type Distribution</h3>
+                    <div id="typeChart" style="height: 300px;"></div>
+                </div>
+            </div>
+            
+            <!-- Top Assessments -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-16">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Most Recommended Assessments</h3>
+                <div id="topAssessmentsChart" style="height: 400px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Queries -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Recent Query Analysis</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Query History -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-gray-900">Latest Queries</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-medium text-gray-900">Senior Java Developer</span>
+                                <span class="text-sm text-gray-500">2 hours ago</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-600">8 recommendations generated</span>
+                                <span class="text-sm font-medium text-green-600">92% avg confidence</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-medium text-gray-900">QA Engineer</span>
+                                <span class="text-sm text-gray-500">4 hours ago</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-600">6 recommendations generated</span>
+                                <span class="text-sm font-medium text-green-600">89% avg confidence</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-medium text-gray-900">Project Manager</span>
+                                <span class="text-sm text-gray-500">6 hours ago</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-600">7 recommendations generated</span>
+                                <span class="text-sm font-medium text-green-600">94% avg confidence</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="font-medium text-gray-900">Data Analyst</span>
+                                <span class="text-sm text-gray-500">8 hours ago</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-600">5 recommendations generated</span>
+                                <span class="text-sm font-medium text-green-600">87% avg confidence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill Analysis -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-gray-900">Top Skills Requested</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-gray-900">Java</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">85%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-gray-900">Leadership</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-600 h-2 rounded-full" style="width: 78%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">78%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-gray-900">Communication</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-purple-600 h-2 rounded-full" style="width: 72%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">72%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-gray-900">Problem Solving</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-red-600 h-2 rounded-full" style="width: 69%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">69%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                            <span class="font-medium text-gray-900">Testing</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-yellow-600 h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                                <span class="text-sm text-gray-600">65%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Export Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Export Analytics Data</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 bg-blue-50 rounded-xl">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Usage Reports</h3>
+                        <p class="text-gray-600 text-sm mb-4">Download detailed usage analytics and trends</p>
+                        <button onclick="exportUsageData()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            Export CSV
+                        </button>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-green-50 rounded-xl">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Performance Metrics</h3>
+                        <p class="text-gray-600 text-sm mb-4">System performance and accuracy data</p>
+                        <button onclick="exportPerformanceData()" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                            Export JSON
+                        </button>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-purple-50 rounded-xl">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Custom Reports</h3>
+                        <p class="text-gray-600 text-sm mb-4">Generate custom analytics reports</p>
+                        <button onclick="showCustomReportModal()" class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                            Configure
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">SHL</span>
+                </div>
+                <span class="text-xl font-bold">Assessment Engine</span>
+            </div>
+            <p class="text-gray-400">© 2024 SHL Assessment Recommendation Engine. Intelligent talent assessment matching.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+            initializeAnimations();
+        });
+
+        function initializeCharts() {
+            // Usage Trends Chart
+            const usageChart = echarts.init(document.getElementById('usageChart'));
+            const usageOption = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: [65, 72, 89, 95, 102, 118, 125, 134, 142, 156, 168, 182],
+                    type: 'line',
+                    smooth: true,
+                    itemStyle: {
+                        color: '#3b82f6'
+                    },
+                    areaStyle: {
+                        color: 'rgba(59, 130, 246, 0.1)'
+                    }
+                }]
+            };
+            usageChart.setOption(usageOption);
+
+            // Assessment Type Chart
+            const typeChart = echarts.init(document.getElementById('typeChart'));
+            const typeOption = {
+                tooltip: {
+                    trigger: 'item'
+                },
+                series: [{
+                    type: 'pie',
+                    radius: '70%',
+                    data: [
+                        { value: 45, name: 'Knowledge/Skill', itemStyle: { color: '#3b82f6' } },
+                        { value: 55, name: 'Personality/Behavior', itemStyle: { color: '#8b5cf6' } }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            };
+            typeChart.setOption(typeOption);
+
+            // Top Assessments Chart
+            const topChart = echarts.init(document.getElementById('topAssessmentsChart'));
+            const topOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Java Programming', 'Problem Solving', 'Leadership', 'Communication', 'Teamwork', 'Data Analysis', 'Project Management', 'Quality Assurance']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: [156, 142, 138, 125, 118, 108, 95, 87],
+                    type: 'bar',
+                    itemStyle: {
+                        color: function(params) {
+                            const colors = ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#06b6d4', '#84cc16', '#f97316'];
+                            return colors[params.dataIndex];
+                        }
+                    }
+                }]
+            };
+            topChart.setOption(topOption);
+
+            // Make charts responsive
+            window.addEventListener('resize', function() {
+                usageChart.resize();
+                typeChart.resize();
+                topChart.resize();
+            });
+        }
+
+        function initializeAnimations() {
+            anime({
+                targets: '.shadow-lg',
+                translateY: [30, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(150),
+                duration: 600,
+                easing: 'easeOutQuad'
+            });
+        }
+
+        function exportUsageData() {
+            const csvContent = `Date,Queries,Average Confidence,Response Time
+2024-01-01,65,91.2,2.3
+2024-01-02,72,92.1,2.1
+2024-01-03,89,93.5,2.0
+2024-01-04,95,94.2,1.9
+2024-01-05,102,93.8,2.2`;
+            
+            downloadCSV(csvContent, 'usage_analytics.csv');
+        }
+
+        function exportPerformanceData() {
+            const jsonContent = {
+                "metrics": {
+                    "total_queries": 1247,
+                    "average_confidence": 94.2,
+                    "average_response_time": 2.1,
+                    "uptime": 99.8
+                },
+                "trends": {
+                    "monthly_growth": 12,
+                    "confidence_improvement": 2.1,
+                    "performance_improvement": -0.3
+                }
+            };
+            
+            downloadJSON(jsonContent, 'performance_metrics.json');
+        }
+
+        function showCustomReportModal() {
+            alert('Custom report configuration coming soon! This feature will allow you to generate tailored analytics reports based on your specific requirements.');
+        }
+
+        function downloadCSV(content, filename) {
+            const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            
+            link.setAttribute('href', url);
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadJSON(content, filename) {
+            const blob = new Blob([JSON.stringify(content, null, 2)], { type: 'application/json' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            
+            link.setAttribute('href', url);
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>

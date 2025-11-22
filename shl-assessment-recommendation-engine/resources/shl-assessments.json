@@ -1,0 +1,182 @@
+[
+  {
+    "assessment_name": "Java Programming Knowledge Test",
+    "description": "Comprehensive assessment of Java programming skills including object-oriented concepts, data structures, and algorithm implementation",
+    "test_type": "K",
+    "skill_keywords": ["Java", "OOP", "Data Structures", "Algorithms", "Programming"],
+    "url": "https://www.shl.com/product/java-programming-test",
+    "duration": "60 minutes",
+    "difficulty": "Intermediate"
+  },
+  {
+    "assessment_name": "Problem Solving Test",
+    "description": "Evaluates analytical thinking and problem-solving abilities through logical reasoning scenarios",
+    "test_type": "K",
+    "skill_keywords": ["Problem Solving", "Analytical Thinking", "Logic", "Reasoning"],
+    "url": "https://www.shl.com/product/problem-solving-test",
+    "duration": "45 minutes",
+    "difficulty": "Intermediate"
+  },
+  {
+    "assessment_name": "Interpersonal Skills Questionnaire",
+    "description": "Measures communication abilities, teamwork, and collaboration skills in workplace scenarios",
+    "test_type": "P",
+    "skill_keywords": ["Communication", "Teamwork", "Collaboration", "Interpersonal Skills"],
+    "url": "https://www.shl.com/product/interpersonal-skills",
+    "duration": "30 minutes",
+    "difficulty": "Beginner"
+  },
+  {
+    "assessment_name": "Collaboration & Teamwork Assessment",
+    "description": "Comprehensive evaluation of team collaboration abilities and group dynamics understanding",
+    "test_type": "P",
+    "skill_keywords": ["Teamwork", "Collaboration", "Group Dynamics", "Conflict Resolution"],
+    "url": "https://www.shl.com/product/collaboration-test",
+    "duration": "40 minutes",
+    "difficulty": "Intermediate"
+  },
+  {
+    "assessment_name": "Workplace Personality Questionnaire",
+    "description": "In-depth personality assessment designed for workplace environments and team compatibility",
+    "test_type": "P",
+    "skill_keywords": ["Personality", "Workplace Behavior", "Team Compatibility", "Cultural Fit"],
+    "url": "https://www.shl.com/product/personality-assessment",
+    "duration": "50 minutes",
+    "difficulty": "Beginner"
+  },
+  {
+    "assessment_name": "Leadership Assessment",
+    "description": "Evaluates leadership potential and management capabilities through scenario-based questions",
+    "test_type": "P",
+    "skill_keywords": ["Leadership", "Management", "Decision Making", "Strategic Thinking"],
+    "url": "https://www.shl.com/product/leadership-assessment",
+    "duration": "75 minutes",
+    "difficulty": "Advanced"
+  },
+  {
+    "assessment_name": "Technical Aptitude Test",
+    "description": "Measures technical learning ability and problem-solving skills for engineering roles",
+    "test_type": "K",
+    "skill_keywords": ["Technical Skills", "Learning Ability", "Engineering", "Mathematics"],
+    "url": "https://www.shl.com/product/technical-aptitude",
+    "duration": "60 minutes",
+    "difficulty": "Intermediate"
+  },
+  {
+    "assessment_name": "Customer Service Skills Test",
+    "description": "Assesses customer service abilities including communication, empathy, and problem resolution",
+    "test_type": "P",
+    "skill_keywords": ["Customer Service", "Communication", "Empathy", "Problem Resolution"],
+    "url": "https://www.shl.com/product/customer-service-test",
+    "duration": "45 minutes",
+    "difficulty": "Beginner"
+  },
+  {
+    "assessment_name": "Project Management Assessment",
+    "description": "Comprehensive evaluation of project management methodologies and execution capabilities",
+    "test_type": "K",
+    "skill_keywords": ["Project Management", "Planning", "Execution", "Risk Management"],
+    "url": "https://www.shl.com/product/project-management-test",
+    "duration": "90 minutes",
+    "difficulty": "Advanced"
+  },
+  {
+    "assessment_name": "Data Analysis Skills Test",
+    "description": "Tests data interpretation, statistical analysis, and data visualization capabilities",
+    "test_type": "K",
+    "skill_keywords": ["Data Analysis", "Statistics", "Visualization", "Excel", "SQL"],
+    "url": "https://www.shl.com/product/data-analysis-test",
+    "duration": "60 minutes",
+    "difficulty": "Intermediate"
+  },
+  {
+    "assessment_name": "Sales Aptitude Assessment",
+    "description": "Evaluates sales skills including persuasion, negotiation, and relationship building",
+    "test_type": "P",
+    "skill_keywords": ["Sales", "Persuasion", "Negotiation", "Relationship Building"],
+    "url": "https://www.shl.com/product/sales-aptitude-test",
+    "duration": "50 minutes",
+    "difficulty": "Intermediate"
+  },
+  {
+    "assessment_name": "Software Engineering Test",
+    "description": "Comprehensive software development assessment covering coding, design patterns, and best practices",
+    "test_type": "K",
+    "skill_keywords": ["Software Engineering", "Coding", "Design Patterns", "Best Practices"],
+    "url": "https://www.shl.com/product/software-engineering-test",
+    "duration": "120 minutes",
+    "difficulty": "Advanced"
+  },
+  {
+    "assessment_name": "Emotional Intelligence Assessment",
+    "description": "Measures emotional awareness, empathy, and social skills in professional contexts",
+    "test_type": "P",
+    "skill_keywords": ["Emotional Intelligence", "Empathy", "Social Skills", "Self-Awareness"],
+    "url": "https://www.shl.com/product/emotional-intelligence-test",
+    "duration": "40 minutes",
+    "difficulty": "Beginner"
+  },
+  {
+    "assessment_name": "Quality Assurance Test",
+    "description": "Evaluates QA methodologies, testing strategies, and quality control processes",
+    "test_type": "K",
+    "skill_keywords": ["Quality Assurance", "Testing", "QA Methodologies", "Quality Control"],
+    "url": "https://www.shl.com/product/quality-assurance-test",
+    "duration": "75 minutes",
+    "difficulty": "Intermediate"
+  },
+  {
+    "assessment_name": "Business Analysis Assessment",
+    "description": "Tests business process analysis, requirements gathering, and solution design skills",
+    "test_type": "K",
+    "skill_keywords": ["Business Analysis", "Requirements Gathering", "Process Analysis", "Solution Design"],
+    "url": "https://www.shl.com/product/business-analysis-test",
+    "duration": "80 minutes",
+    "difficulty": "Intermediate"
+  },
+  {
+    "assessment_name": "Creative Thinking Test",
+    "description": "Assesses innovation, creativity, and out-of-the-box problem solving abilities",
+    "test_type": "P",
+    "skill_keywords": ["Creative Thinking", "Innovation", "Problem Solving", "Ideation"],
+    "url": "https://www.shl.com/product/creative-thinking-test",
+    "duration": "35 minutes",
+    "difficulty": "Beginner"
+  },
+  {
+    "assessment_name": "Financial Analysis Test",
+    "description": "Evaluates financial modeling, analysis, and business valuation skills",
+    "test_type": "K",
+    "skill_keywords": ["Financial Analysis", "Modeling", "Business Valuation", "Excel"],
+    "url": "https://www.shl.com/product/financial-analysis-test",
+    "duration": "90 minutes",
+    "difficulty": "Advanced"
+  },
+  {
+    "assessment_name": "Digital Marketing Assessment",
+    "description": "Tests digital marketing strategies, analytics, and campaign management skills",
+    "test_type": "K",
+    "skill_keywords": ["Digital Marketing", "Analytics", "Campaign Management", "SEO"],
+    "url": "https://www.shl.com/product/digital-marketing-test",
+    "duration": "70 minutes",
+    "difficulty": "Intermediate"
+  },
+  {
+    "assessment_name": "Adaptability Assessment",
+    "description": "Measures flexibility, change management, and ability to work in dynamic environments",
+    "test_type": "P",
+    "skill_keywords": ["Adaptability", "Change Management", "Flexibility", "Resilience"],
+    "url": "https://www.shl.com/product/adaptability-test",
+    "duration": "30 minutes",
+    "difficulty": "Beginner"
+  },
+  {
+    "assessment_name": "UX/UI Design Test",
+    "description": "Evaluates user experience design, interface design, and usability testing skills",
+    "test_type": "K",
+    "skill_keywords": ["UX Design", "UI Design", "Usability Testing", "Prototyping"],
+    "url": "https://www.shl.com/product/ux-ui-design-test",
+    "duration": "85 minutes",
+    "difficulty": "Intermediate"
+  }
+]
