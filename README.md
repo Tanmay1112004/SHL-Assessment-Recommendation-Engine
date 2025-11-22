@@ -2,6 +2,17 @@
 
 A sophisticated web application that uses AI-powered semantic analysis to match job descriptions with the most relevant SHL assessments. Built as a comprehensive solution for recruiters and hiring managers to streamline their talent assessment selection process.
 
+## Website images 
+
+![demo](https://github.com/Tanmay1112004/SHL-Assessment-Recommendation-Engine/blob/main/shl-assessment-recommendation-engine/website_screenshots/Screenshot%202025-11-22%20112533.png)
+![demo](https://github.com/Tanmay1112004/SHL-Assessment-Recommendation-Engine/blob/main/shl-assessment-recommendation-engine/website_screenshots/Screenshot%202025-11-22%20112613.png)
+![demo](https://github.com/Tanmay1112004/SHL-Assessment-Recommendation-Engine/blob/main/shl-assessment-recommendation-engine/website_screenshots/Screenshot%202025-11-22%20112655.png)
+![demo](https://github.com/Tanmay1112004/SHL-Assessment-Recommendation-Engine/blob/main/shl-assessment-recommendation-engine/website_screenshots/Screenshot%202025-11-22%20112758.png)
+![demo](https://github.com/Tanmay1112004/SHL-Assessment-Recommendation-Engine/blob/main/shl-assessment-recommendation-engine/website_screenshots/Screenshot%202025-11-22%20112851.png)
+![demo](https://github.com/Tanmay1112004/SHL-Assessment-Recommendation-Engine/blob/main/shl-assessment-recommendation-engine/website_screenshots/Screenshot%202025-11-22%20112902.png)
+![demo](https://github.com/Tanmay1112004/SHL-Assessment-Recommendation-Engine/blob/main/shl-assessment-recommendation-engine/website_screenshots/Screenshot%202025-11-22%20113258.png)
+![demo](https://github.com/Tanmay1112004/SHL-Assessment-Recommendation-Engine/blob/main/shl-assessment-recommendation-engine/website_screenshots/Screenshot%202025-11-22%20113317.png)
+
 ## Features
 
 ### 🎯 Core Functionality
@@ -138,4 +149,3 @@ The recommendation engine uses semantic analysis techniques to provide intellige
 
 ---
 
-**Built with ❤️ for the SHL Assessment Challenge**
